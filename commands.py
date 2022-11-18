@@ -25,7 +25,7 @@ async def player_turn(message: types.Message):
     player = message.from_user
     model.set_player(player)
     if (message.text).isdigit():
-        if 0 < int(message.text) < 29:
+        if 0 < int(message.text) < model.get_max_take():
             total_count = model.get_total_candies()
             player_take = int(message.text)
             total = total_count - player_take
